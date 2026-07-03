@@ -2,20 +2,27 @@ cask "drivescape" do
   version "1.4.0"
   sha256 "cace3ef70448dd938a01df705a9352d13faf7885a7d32caf7f41c85e65a6eec4"
 
-  url "https://github.com/BrickLogic/ChartyDriveReleases/releases/download/v#{version}/DriveScape_#{version}_aarch64.dmg"
+  url "https://github.com/BrickLogic/ChartyDriveReleases/releases/download/v#{version}/DriveScape_#{version}_aarch64.dmg",
+      verified: "github.com/BrickLogic/ChartyDriveReleases/"
   name "DriveScape"
-  desc "Disk-space analyzer and cleaner - sunburst map, dev-junk cleanup, duplicate finder"
+  desc "Disk-space analyzer and cleaner"
   homepage "https://drivescape.dev/"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   # The app updates itself (signed Tauri updater) - don't fight it from brew.
   auto_updates true
   depends_on arch: :arm64
+  depends_on macos: :big_sur
 
   app "DriveScape.app"
 
   zap trash: [
-    "~/Library/Application Support/DriveScape",
     "~/Library/Application Support/com.bricklogic.drivescape",
+    "~/Library/Application Support/DriveScape",
     "~/Library/Caches/com.bricklogic.drivescape",
     "~/Library/HTTPStorages/com.bricklogic.drivescape",
     "~/Library/LaunchAgents/com.bricklogic.drivescape.lowdisk.plist",
