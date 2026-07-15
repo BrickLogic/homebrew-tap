@@ -1,6 +1,6 @@
 cask "drivescape" do
-  version "1.5.2"
-  sha256 "43e73d1e2e8304372cc70fd2d875e4f43c2e80b763c65f0ec52d63d6111f8ae9"
+  version "1.6.0"
+  sha256 "ab8db6fc854cebcfdfccdd576eeccba64bd7d07fecf0a2d177bc314a420dc6b6"
 
   url "https://github.com/BrickLogic/ChartyDriveReleases/releases/download/v#{version}/DriveScape_#{version}_aarch64.dmg",
       verified: "github.com/BrickLogic/ChartyDriveReleases/"
